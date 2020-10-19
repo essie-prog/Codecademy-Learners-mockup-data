@@ -1,0 +1,30 @@
+SELECT * 
+FROM users
+LIMIT 200;
+
+SELECT * 
+FROM progress
+LIMIT 200;
+
+SELECT DISTINCT email_domain 
+FROM users
+WHERE email_domain LIKE "%.edu" 
+LIMIT 20;
+ 
+SELECT COUNT(DISTINCT email_domain) 
+FROM users 
+WHERE email_domain LIKE "%.edu" AND city = "New York";
+
+SELECT COUNT(*) 
+FROM users
+WHERE mobile_app = "mobile-user";
+
+SELECT sign_up_at,
+strftime("%H", sign_up_at) 
+FROM users GROUP BY 1 
+LIMIT 20;
+
+SELECT * 
+FROM users 
+JOIN progress 
+ON users.user_id = progress.user_id;
